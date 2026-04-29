@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { App } from './app.component';
 import { HeaderComponent } from './header.component';
 import { ContactsComponent } from './contacts/contacts.component';
-import { ContactDetail } from './contacts/contact-detail/contact-detail.component';
+import { ContactDetailComponent } from './contacts/contact-detail/contact-detail.component';
 import { ContactListComponent } from './contacts/contact-list/contact-list.component';
 
 @NgModule({
@@ -13,7 +13,7 @@ import { ContactListComponent } from './contacts/contact-list/contact-list.compo
     App, 
     HeaderComponent,
     ContactsComponent,
-    ContactDetail,
+    ContactDetailComponent,
     ContactListComponent
   ],
   imports: [BrowserModule, FormsModule],
