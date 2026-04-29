@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { App } from './app.component';
 import { HeaderComponent } from './header.component';
-import { Contacts } from './contacts/contacts.component';
-import { ContactDetail } from './contacts/contact-detail/contact-detail';
-import { ContactList } from './contacts/contact-list/contact-list';
+import { ContactsComponent } from './contacts/contacts.component';
+import { ContactDetail } from './contacts/contact-detail/contact-detail.component';
+import { ContactListComponent } from './contacts/contact-list/contact-list.component';
 
 @NgModule({
   declarations: [
     App, 
     HeaderComponent,
-    Contacts,
+    ContactsComponent,
     ContactDetail,
-    ContactList
+    ContactListComponent
   ],
   imports: [BrowserModule, FormsModule],
   providers: [provideBrowserGlobalErrorListeners()],
