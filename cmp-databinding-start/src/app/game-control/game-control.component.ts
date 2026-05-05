@@ -7,7 +7,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class GameControlComponent {
   @Output() intervalFired = new EventEmitter<number>();
-  interval;
+  interval!: number;
   lastNumber = 0;
 
   onStartGame() {
