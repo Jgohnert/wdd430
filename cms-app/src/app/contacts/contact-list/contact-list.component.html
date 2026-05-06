@@ -1,0 +1,28 @@
+<div class="panel panel-default">
+
+  <div class="panel-heading">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <h3 style="margin: 0;">Contacts</h3>
+      </div>
+      <span class="pull-right">
+        <div class="col-xs-12 col-sm-6">
+          <button class="btn btn-success">New Contact</button>
+        </div>
+      </span>
+    </div>
+  </div>
+
+  <div class="row" style="margin: 10px">
+    <div class="col-xs-12">
+      <app-contact-item
+      *ngFor="let contactEl of contacts"
+      [contact]="contactEl"
+      (contactSelected)="onContactSelected(contactEl)"></app-contact-item>
+    </div>
+  </div>
+
+</div>
+
+
+
