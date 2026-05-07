@@ -1,14 +1,14 @@
-<app-header></app-header>
+<app-header (featureSelected)="onNavigate($event)"></app-header>
 <!-- <div class="col-md-5">
   <app-contacts></app-contacts>
 </div> -->
 <div class="container">
   <div class="row">
-      <div class="col-md-5">
-        <app-contact-list></app-contact-list>
-      </div>
-      <div class="col-md-5">
-        <app-contact-detail></app-contact-detail>
-      </div>
-  </div>
+    <div class="col-md-12">
+      <cms-contact-list
+      *ngIf="loadedFeature === 'contact'"></cms-contact-list>
+    </div>
+    <!-- <div class="col-md-5">
+      <cms-contact-detail></cms-contact-detail> -->
+    </div>
 </div>

@@ -1,41 +1,39 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-
-    <div class="row">
-      <div class="col-xs-12">
-        <img src="" alt="" class="img-responsive">
+    <div class="col-xs-12"> 
+        <h1>{{ contact.name }}</h1> 
       </div>
-    </div>
 
-    <div class="row">
-      <div class="col-xs-12">
-        <h1></h1>
+    <div class="row" style="display: flex; align-items: flex-end;">
+      <div class="col-xs-5">
+        <img
+          [src]="contact.imageUrl"
+          alt="{{ contact.name }}"
+          class="img-responsive">
       </div>
-    </div>
-    
-    <div class="row">
-      <div class="col-xs-12 text-right">
+  
+      <div class="col-xs-7 text-right">
         <div class="btn-group" style="margin: 2px">
           <button type="button" class="btn btn-primary">
             Edit
           </button>
         </div>
-
         <div class="btn-group" style="margin: 2px">
-          <button type="button" class="btn btn-primary">
+          <button type="button" class="btn btn-danger">
             Delete
           </button>
         </div>
       </div>
     </div>
   </div>
+
   <div class="row" style="margin: 1rem">
     <div class="col-xs-12">
-      Email:
+      Email: {{ contact.email }}
     </div>
   
     <div class="col-xs-12">
-      Phone:
+      Phone: {{ contact.phone }}
     </div>
   </div>
 </div>

@@ -8,4 +8,10 @@ import { Component, signal } from '@angular/core';
 })
 export class AppComponent {
   protected readonly title = signal('cms-app');
+
+  loadedFeature = 'contact';
+
+  onNavigate(feature: string) {
+    this.loadedFeature = feature;
+  }
 }
