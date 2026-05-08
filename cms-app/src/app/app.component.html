@@ -1,12 +1,21 @@
-<app-header (featureSelected)="onNavigate($event)"></app-header>
-<!-- <div class="col-md-5">
-  <app-contacts></app-contacts>
-</div> -->
+<cms-header (selectedFeatureEvent)="switchView($event)"></cms-header>
+<div class="container pull-left">
+  <cms-document-list
+    *ngIf="loadedFeature === 'documents'">
+  </cms-document-list>
+  <cms-message-list
+    *ngIf="loadedFeature === 'messages'">
+  </cms-message-list>
+  <cms-contact-list
+    *ngIf="loadedFeature === 'contacts'">
+  </cms-contact-list>
+</div>
 <div class="container">
   <div class="row">
     <div class="col-md-12">
       <cms-contact-list
-      *ngIf="loadedFeature === 'contact'"></cms-contact-list>
+        *ngIf="loadedFeature === 'contact'">
+      </cms-contact-list>
     </div>
     <!-- <div class="col-md-5">
       <cms-contact-detail></cms-contact-detail> -->
