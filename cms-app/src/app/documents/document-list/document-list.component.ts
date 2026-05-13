@@ -14,28 +14,28 @@ export class DocumentListComponent {
     new Document(
       1,
       'name',
-      'description',
+      'description of the document goes here',
       'file/document',
       ['null']
     ),
     new Document(
       2,
       'name2',
-      'description2',
+      'description of document number 2 goes here',
       'file/document2',
       ['null']
     ),
     new Document(
       3,
       'name3',
-      'description3',
+      'description of document number 3 goes here',
       'file/document3',
       ['null']
     ),
     new Document(
       4,
       'name4',
-      'description4',
+      'description of document number 4 goes here',
       'file/document4',
       ['null']
     ),
