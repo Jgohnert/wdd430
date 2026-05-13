@@ -9,6 +9,7 @@ import { Contact } from '../contact.model';
 })
 export class ContactListComponent {
   @Output() selectedContactEvent = new EventEmitter<Contact>();
+  
   contacts: Contact[] = [
     new Contact(
       1,

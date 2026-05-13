@@ -1,12 +1,16 @@
-<p>Documents work!</p>
 <div class="row">
-  <div class="col-md-5">
+  <div class="col-md-6">
     <!--Add tag to load the DocumentListComponent here-->
-    <app-document-list></app-document-list>
+    <cms-document-list
+    (selectedDocumentEvent)="selectedDocument = $event">
+    </cms-document-list>
   </div>
 
   <div class="col-md-4">
     <!--Add tag to load the DocumentDetailComponent here-->
-    <app-document-detail></app-document-detail>
+    <cms-document-detail
+      *ngIf="selectedDocument;"
+      [document]="selectedDocument">
+    </cms-document-detail>
   </div>
 </div>

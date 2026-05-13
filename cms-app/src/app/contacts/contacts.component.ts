@@ -8,5 +8,5 @@ import { Contact } from './contact.model';
   styleUrl: './contacts.component.css',
 })
 export class ContactsComponent {
-  selectedContact!: Contact;
+  selectedContact: Contact;
 }
