@@ -7,8 +7,9 @@ import { Document } from './document.model';
 })
 
 export class DocumentService {
-  // contactSelectedEvent = new EventEmitter<Document>();
-  documents: Document [] =[];
+  documentSelectedEvent = new EventEmitter<Document>();
+
+  documents: Document [] = [];
 
   constructor() {
     this.documents = MOCKDOCUMENTS;
