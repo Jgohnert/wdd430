@@ -9,7 +9,7 @@ import { Contact } from '../../contacts/contact.model';
   templateUrl: './message-item.component.html',
   styleUrl: './message-item.component.css',
 })
-export class MessageItemComponent implements OnInit{
+export class MessageItemComponent implements OnInit {
   @Input() message: Message;
   messageSender: string;
 
@@ -21,7 +21,7 @@ export class MessageItemComponent implements OnInit{
     if (contact) {
       this.messageSender = contact.name;
     } else {
-      this.messageSender = 'Unknown Sender';
+      this.messageSender = 'Joanna Gohnert';
     }
   }
 
