@@ -5,20 +5,21 @@
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li>
+        <li routerLinkActive="active">
           <a 
-            href="#" 
-            (click)="onSelected('documents')" 
+            routerLink="/documents" 
             class="navbar-brand">Documents
           </a>
+        </li>
+        <li routerLinkActive="active">
           <a 
-            href="#" 
-            (click)="onSelected('messages')" 
+            routerLink="/messages"  
             class="navbar-brand">Messages
           </a>
+        </li>
+        <li routerLinkActive="active">
           <a 
-            href="#" 
-            (click)="onSelected('contacts')" 
+            routerLink="/contacts"  
             class="navbar-brand">Contacts
           </a>
         </li>

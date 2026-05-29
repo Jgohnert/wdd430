@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Document } from './document.model';
 import { DocumentService } from './document.service';
 
@@ -9,16 +9,5 @@ import { DocumentService } from './document.service';
   styleUrl: './documents.component.css',
 })
 export class DocumentsComponent {
-  selectedDocument: Document;
-
-  constructor(private documentService: DocumentService) { }
-
-  ngOnInit() {
-      this.documentService.documentSelectedEvent
-        .subscribe(
-          (recipe: Document) => {
-            this.selectedDocument = recipe;
-          }
-        );
-    }
+ 
 }
