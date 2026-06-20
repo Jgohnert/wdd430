@@ -2,6 +2,7 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { MOCKDOCUMENTS } from './MOCKDOCUMENTS';
 import { Document } from './document.model';
 import { Subject } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -10,20 +11,63 @@ import { Subject } from 'rxjs';
 export class DocumentService {
   documentListChangedEvent = new Subject<Document[]>();
   documentSelectedEvent = new EventEmitter<Document>();
-  documentChangedEvent = new EventEmitter<Document[]>();
+  // documentChangedEvent = new EventEmitter<Document[]>();
 
   maxDocumentId!: number
   
 
   documents: Document [] = [];
 
-  constructor() {
-    this.documents = MOCKDOCUMENTS;
+  constructor(private http: HttpClient) {
+    // this.documents = MOCKDOCUMENTS;
     this.maxDocumentId = this.getMaxId();
   }
 
+  storeDocuments() {
+    JSON.stringify(this.documents);
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+
+    this.http.put(
+      'https://cms-app-fe1b1-default-rtdb.firebaseio.com/documents.json',
+      this.documents,
+      { headers: headers }
+    )
+    .subscribe({
+      next: () => {
+        console.log('Document has been saved.');
+      }
+    });
+  }
+
   getDocuments() {
-      return this.documents.slice();
+    return this.http
+      .get<Document[]>(
+          'https://cms-app-fe1b1-default-rtdb.firebaseio.com/documents.json'
+      )
+      .subscribe(
+        (documents: Document[]) => {
+          this.documents = documents;
+          this.maxDocumentId = this.getMaxId();
+  
+          this.documents.sort((a, b) => {
+            if (a.name < b.name) {
+              return -1;
+            } if (a.name > b.name) {
+              return 1;
+            } else {
+              return 0;
+            }
+          });
+  
+          this.documentListChangedEvent.next(this.documents.slice());
+        },
+        (error: any) => {
+          console.error('An Error occured getting documents:', error);
+        }
+      )
   }
   
   getDocument(id: string): Document {
@@ -58,9 +102,9 @@ export class DocumentService {
     newDocument.id = String(this.maxDocumentId);
 
     this.documents.push(newDocument);
-
-    const documentsListClone = this.documents.slice();
-    this.documentListChangedEvent.next(documentsListClone);
+    
+    this.storeDocuments();
+    this.documentListChangedEvent.next(this.documents.slice());
   }
 
   updateDocument(originalDocument: Document, newDocument: Document) {
@@ -78,8 +122,8 @@ export class DocumentService {
 
     this.documents[pos] = newDocument;
 
-    const documentsListClone = this.documents.slice();
-    this.documentListChangedEvent.next(documentsListClone);
+    this.storeDocuments();
+    this.documentListChangedEvent.next(this.documents.slice());
   }
 
   deleteDocument(document: Document) {
@@ -94,7 +138,7 @@ export class DocumentService {
 
     this.documents.splice(pos, 1);
 
-    const documentsListClone = this.documents.slice();
-    this.documentListChangedEvent.next(documentsListClone);
+    this.storeDocuments();
+    this.documentListChangedEvent.next(this.documents.slice());
   }
 }

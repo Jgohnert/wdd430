@@ -1,31 +1,40 @@
 <div class="panel panel-default">
 
-  <div class="panel-heading">
-    <div class="row">
-      <div class="col-xs-5 col-sm-6">
-        <h3 style="margin: 0;">Contacts</h3>
-      </div>
-      <span class="pull-right">
-        <div class="col-xs-12 col-sm-6">
-          <a class="btn btn-success pull-right"
-            [routerLink]="['/contacts', 'new']">
-            New Contact
-          </a>
+  <div class="row">
+  <div class="col-xs-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="row col-sm-6">
+          <span class="title pad-left-right">Contacts</span>
         </div>
-      </span>
+        <div class="row">
+          <div class="input-group pull-left pad-left-right col-xs-7">
+            <input 
+              type="text" 
+              #searchBox 
+              (keyup)="search(searchBox.value)"
+              class="form-control"
+              placeholder="Enter a search value">
+            <div class="glyphicon glyphicon-search input-group-addon" (click)="search(searchBox.value)"></div>
+          </div>
+          <div class="pull-right pad-left-right">
+            <a class="btn btn-success" [routerLink]="['new']">New Contact</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+</div>
+
   <!-- [contact] is from contactItemComponent -->
   <div class="row" style="margin: 10px">
     <div class="col-xs-12">
       <cms-contact-item
-        *ngFor="let contactEl of contacts"
+        *ngFor="let contactEl of contacts | 
+        contactsFilter:term"
         [contact]="contactEl">
       </cms-contact-item>
     </div>
   </div>
 
 </div>
-
-
-

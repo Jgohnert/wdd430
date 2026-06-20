@@ -20,18 +20,16 @@ export class MessageEditComponent {
   constructor(public messageService: MessageService) { }
 
   onSendMessage() {
-
     const senderName = this.subjectInputRef.nativeElement.value;
     const senderMessage = this.messageInputRef.nativeElement.value;
     
     const newMessage = new Message(
-      '1',
+      '',
       senderName, 
       senderMessage,
       this.currentSender);
-    this.messageService.addMessage(newMessage);
-
-  }
+      this.messageService.addMessage(newMessage);
+    }
 
   onClear() {
     this.subjectInputRef.nativeElement.value = '';
