@@ -1,4 +1,5 @@
 export class Document {
+  _id?: string;
   public id: string;
   public name: string;
   public description: string;

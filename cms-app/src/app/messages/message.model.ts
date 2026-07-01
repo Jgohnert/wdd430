@@ -1,4 +1,5 @@
 export class Message {
+  _id?: string;
   public id: string;
   public subject: string;
   public msgText: string;
