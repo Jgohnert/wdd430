@@ -4,18 +4,21 @@ const sequenceGenerator = require('../models/sequenceGenerator');
 const Document = require('../models/document');
 
 router.get('/', (req, res, next) => {
-  Document.find((error, documents) => {
+  Document.find()
+    .then(documents => {
+      res.status(200).json(documents);
+    })
 
-    if (error) {
-      return res.status(500).json({ error: error.message });
-    }
-
-    return res.status(200).json(documents);
-   });
+    .catch(error => {
+       res.status(500).json({
+          message: 'An error occurred',
+          error: error
+        });
+    });
 });
 
 router.post('/', (req, res, next) => {
-  const maxDocumentId = sequenceGenerator.nextId("documents");
+  const maxDocumentId = sequenceGenerator.nextId('documents');
 
   const document = new Document({
     id: maxDocumentId,
@@ -49,7 +52,7 @@ router.put('/:id', (req, res, next) => {
       Document.updateOne({ id: req.params.id }, document)
         .then(result => {
           res.status(204).json({
-            message: 'Document updated successfully'
+            message: 'Document was updated'
           })
         })
         .catch(error => {
@@ -73,7 +76,7 @@ router.delete("/:id", (req, res, next) => {
       Document.deleteOne({ id: req.params.id })
         .then(result => {
           res.status(204).json({
-            message: "Document deleted successfully"
+            message: 'Document was deleted'
           });
         })
         .catch(error => {

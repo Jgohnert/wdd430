@@ -10,18 +10,15 @@ var sequenceId = null;
 // and documents collections.
 function SequenceGenerator() {
 
-   Sequence.findOne().then(sequence => {
+  Sequence.findOne().then(sequence => {
     sequenceId = sequence._id;
     maxDocumentId = sequence.maxDocumentId;
     maxMessageId = sequence.maxMessageId;
     maxContactId = sequence.maxContactId;
-    }).catch(err => {
-      return res.status(500).json({ 
-        title: 'An error occurred',
-        error: err
-      });
-  });
-}
+    }).catch(error => {
+      console.error('error:', error);
+    });
+  };
 
 //  This function increments the maximum id for the specified 
 // collectionType and then updates the Sequence object in the 
@@ -51,14 +48,12 @@ SequenceGenerator.prototype.nextId = function(collectionType) {
       return -1;
   }
 
-  Sequence.update({_id: sequenceId}, {$set: updateObject},
-    function(err) {
-      if (err) {
-        console.log("nextId error = " + err);
-        return null
-      }
+  Sequence.updateOne({_id: sequenceId}, {$set: updateObject},)
+    .then(() => {})
+    .catch(error => {
+      console.error('Sequence update error:', error);
     });
-
+    
   return nextId;
 }
 

@@ -10,7 +10,7 @@ import { MessageService } from '../message.service';
 })
 
 export class MessageEditComponent {
-  currentSender: string = 'Joanna Gohnert';
+  currentSender: string = '6a444718ac65807e1dfee79b';
   message: Message = new Message('0', '', '', '');
 
   @ViewChild('subjectInput', { static: false }) subjectInputRef!: ElementRef;
@@ -22,14 +22,16 @@ export class MessageEditComponent {
   onSendMessage() {
     const senderName = this.subjectInputRef.nativeElement.value;
     const senderMessage = this.messageInputRef.nativeElement.value;
-    
+
     const newMessage = new Message(
       '',
       senderName, 
       senderMessage,
-      this.currentSender);
-      this.messageService.addMessage(newMessage);
-    }
+      this.currentSender
+    );
+
+    this.messageService.addMessage(newMessage);
+  }
 
   onClear() {
     this.subjectInputRef.nativeElement.value = '';

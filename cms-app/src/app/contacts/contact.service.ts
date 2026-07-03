@@ -44,13 +44,13 @@ export class ContactService {
 
   getContacts() {
     this.http
-      .get<{ message: string, contacts: Contact[] }>(
+      .get<Contact[]>(
         // 'https://cms-app-fe1b1-default-rtdb.firebaseio.com/contacts.json'
         'http://localhost:3000/contacts'
       )
-      .subscribe(response => {
+      .subscribe((contacts: Contact[]) => {
 
-        this.contacts = response.contacts;
+        this.contacts = contacts;
 
         this.maxContactId = this.getMaxId();
   

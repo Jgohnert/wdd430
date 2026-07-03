@@ -4,18 +4,20 @@ const sequenceGenerator = require('../models/sequenceGenerator');
 const Message = require('../models/message'); 
 
 router.get('/', (req, res, next) => {
-  Message.find((error, messages) => {
-
-    if (error) {
-      return res.status(500).json({ error: error.message });
-    }
-
-    return res.status(200).json(messages);
-   });
+   Message.find()
+     .then(messages => {
+        res.status(200).json(messages);
+    })
+    .catch(error => {
+      res.status(500).json({
+        message: 'An error occurred',
+        error: error
+      });
+    });
 });
 
 router.post('/', (req, res, next) => {
-  const maxMessageId = sequenceGenerator.nextId("messages");
+  const maxMessageId = sequenceGenerator.nextId('messages');
 
   const message = new Message({
     id: maxMessageId,
@@ -28,10 +30,10 @@ router.post('/', (req, res, next) => {
     .then(createdMessage => {
       res.status(201).json({
         message: 'Message added successfully',
-        message: createdMessage
       });
     })
     .catch(error => {
+      console.error(error);
        res.status(500).json({
           message: 'An error occurred', 
           error: error
@@ -73,7 +75,7 @@ router.delete("/:id", (req, res, next) => {
       Message.deleteOne({ id: req.params.id })
         .then(result => {
           res.status(204).json({
-            message: "Message deleted successfully"
+            message: 'Message was deleted'
           });
         })
         .catch(error => {
