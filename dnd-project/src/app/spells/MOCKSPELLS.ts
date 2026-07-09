@@ -22,7 +22,7 @@ export const MOCKSPELLS: Spell[] = [
   {
     'id': '3',
     'name': 'Crown of Stars',
-    'image': 'crown-of-stars.jpg',
+    'image': 'images/crown-of-stars.jpg',
     'damageType': 'Radiant',
     'level': '7',
     'school': 'Evocation',

@@ -1,0 +1,15 @@
+<a href="#" class="list-group-item clearfix"
+  routerLinkActive="active"
+  [routerLink]="['/spells', spell.id]">
+  <div class="pull-left">
+    <h4 class="list-group-item-heading">{{ spell.name }}</h4>
+    <p class="list-group-itemp">{{ spell.damageType }} Damage</p>
+  </div>
+  <!-- <span class="pull-right">
+    <img 
+      [src]="spell.image" 
+      [alt]="spell.name" 
+      class="img-responsive" 
+      style="max-height: 70px;">
+  </span> -->
+</a>

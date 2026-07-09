@@ -1,1 +1,11 @@
-<p>spells works!</p>
+<div class="row">
+  <div class="col-md-5">
+    <app-spell-list></app-spell-list>
+  </div>
+  <div class="col-md-5">
+    <router-outlet></router-outlet>
+    <ng-template #infoText> 
+      <p>Select Spell</p>
+    </ng-template>
+  </div>
+</div>

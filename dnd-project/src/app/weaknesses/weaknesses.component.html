@@ -1,1 +1,11 @@
-<p>weaknesses works!</p>
+<div class="row">
+  <div class="col-md-5">
+    <app-weaknesses-list></app-weaknesses-list>
+  </div>
+  <div class="col-md-5">
+    <router-outlet></router-outlet>
+    <ng-template #infoText> 
+      <p>Select Monster</p>
+    </ng-template>
+  </div>
+</div>

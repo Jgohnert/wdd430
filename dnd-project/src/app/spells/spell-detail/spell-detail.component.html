@@ -1,0 +1,46 @@
+<div class="panel panel-default" *ngIf="spell">
+  <div class="panel-heading">
+    <div class="col-xs-12"> 
+        <h1>{{ spell.name }}</h1> 
+      </div>
+
+    <div class="row" style="display: flex; align-items: flex-end;">
+      <div class="col-xs-5">
+        <img 
+          [src]="spell.image" 
+          [alt]="spell.name" 
+          class="img-responsive" >
+      </div>
+  
+      <div class="col-xs-7 text-right">
+        <div class="btn-group" style="margin: 2px">
+          <a type="button" class="btn btn-primary"
+            [routerLink]="['/spells', spell.id, 'edit']">
+            Edit
+          </a>
+        </div>
+        <div class="btn-group" style="margin: 2px">
+          <a type="button" class="btn btn-danger"
+            (click)="onDelete()">
+            Delete
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" style="margin: 1rem">
+    <div class="col-xs-12">
+      Damage Type: {{ spell.damageType }}
+    </div>
+    <div class="col-xs-12">
+      Level: {{ spell.level }}
+    </div>
+    <div class="col-xs-12">
+      School: {{ spell.school }}
+    </div>
+    <div class="col-xs-12">
+      Description: {{ spell.description }}
+    </div>
+  </div>
+</div>
