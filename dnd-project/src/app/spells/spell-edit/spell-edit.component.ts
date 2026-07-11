@@ -11,9 +11,8 @@ import { NgForm } from '@angular/forms';
   styleUrl: './spell-edit.component.css',
 })
 export class SpellEditComponent implements OnInit {
-  groupSpells: Spell[] = [];
   originalSpell: Spell;
-  spell: Spell;
+  // spell: Spell;
   editMode: boolean = false;
   id: string;
 
@@ -44,25 +43,35 @@ export class SpellEditComponent implements OnInit {
     }) 
   }
 
+  spell: Spell = new Spell(
+    '',
+    '',
+    'https://loremflickr.com/575/600/stars',
+    '',
+    '',
+    '',
+    ''
+  );
+
   onSubmit(form: NgForm) {
     const value = form.value
-        const newSpell = new Spell(
-          value.id, 
-          value.name, 
-          value.image, 
-          value.damageType, 
-          value.level,
-          value.school,
-          value.description
-        );
-    
-        if (this.editMode) {
-          this.spellService.updateSpell(this.originalSpell, newSpell)
-        } else {
-          this.spellService.addSpell(newSpell)
-        }
-         
-        this.router.navigate(['/spells']);
+    const newSpell = new Spell(
+      value.id, 
+      value.name, 
+      value.image || 'https://loremflickr.com/575/600/stars',
+      value.damageType, 
+      value.level,
+      value.school,
+      value.description
+    );
+
+    if (this.editMode) {
+      this.spellService.updateSpell(this.originalSpell, newSpell)
+    } else {
+      this.spellService.addSpell(newSpell)
+    }
+     
+    this.router.navigate(['/spells']);
   }
 
   onCancel() {

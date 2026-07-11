@@ -12,9 +12,25 @@ export class SpellService {
   spellListChangedEvent = new BehaviorSubject<Spell[]>([]);
   spellChangedEvent = new EventEmitter<Spell[]>();
 
+  maxSpellId!: number
   spells: Spell [] =[];
 
   constructor(private http: HttpClient) {
+    this.maxSpellId = this.getMaxId();
+  }
+
+  getMaxId(): number {
+    let maxId = 0
+
+    this.spells.forEach(contact => {
+      const currentId = parseInt(contact.id);
+
+      if ( currentId > maxId ) {
+        maxId = currentId
+      }
+    });
+
+    return maxId;
   }
 
   getSpells() {
@@ -25,6 +41,8 @@ export class SpellService {
       .subscribe((spells: Spell[]) => {
 
         this.spells = spells;
+
+        this.maxSpellId = this.getMaxId();
   
         this.spells.sort((a, b) => {
           if (a.name < b.name) {
@@ -118,7 +136,6 @@ export class SpellService {
       .subscribe(
         (response: Response) => {
           this.spells.splice(pos, 1);
-          // this.sortAndSend();
         }
       );
   }

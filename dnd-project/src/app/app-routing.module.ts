@@ -15,6 +15,7 @@ const routes: Routes = [
   ]},
   { path: 'spells', component: SpellsComponent, children: [
     { path: 'new', component: SpellEditComponent },
+    { path: ':id/edit', component: SpellEditComponent },
     { path: ':id', component: SpellDetailComponent }
   ]},
   { path: 'monsters', component: MonstersComponent }

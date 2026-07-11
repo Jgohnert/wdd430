@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const Spell = require('../models/spell');
+const sequenceGenerator = require('../models/sequenceGenerator');
 
 router.get('/', (req, res, next) => {
   Spell.find()
@@ -20,7 +21,7 @@ router.post('/', (req, res, next) => {
   const maxSpellId = sequenceGenerator.nextId("spells");
 
   const spell = new Spell({ 
-    id: req.body.id,
+    id: maxSpellId,
     name: req.body.name,
     image: req.body.image,
     damageType: req.body.damageType,
@@ -75,28 +76,28 @@ router.put('/:id', (req, res, next) => {
     });
 });
 
-// router.delete("/:id", (req, res, next) => {
-//   Spell.findOne({ id: req.params.id })
-//     .then(spell => {
-//       Spell.deleteOne({ id: req.params.id })
-//         .then(result => {
-//           res.status(204).json({
-//             message: 'Spell was deleted'
-//           });
-//         })
-//         .catch(error => {
-//            res.status(500).json({
-//            message: 'An error occurred',
-//            error: error
-//          });
-//         })
-//     })
-//     .catch(error => {
-//       res.status(500).json({
-//         message: 'Spell not found.',
-//         error: { spell: 'Spell not found'}
-//       });
-//     });
-// });
+router.delete("/:id", (req, res, next) => {
+  Spell.findOne({ id: req.params.id })
+    .then(spell => {
+      Spell.deleteOne({ id: req.params.id })
+        .then(result => {
+          res.status(204).json({
+            message: 'Spell was deleted'
+          });
+        })
+        .catch(error => {
+           res.status(500).json({
+           message: 'An error occurred',
+           error: error
+         });
+        })
+    })
+    .catch(error => {
+      res.status(500).json({
+        message: 'Spell not found.',
+        error: { spell: 'Spell not found'}
+      });
+    });
+});
 
 module.exports = router; 
