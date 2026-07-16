@@ -19,6 +19,25 @@
     border-radius: 0%;
 }
 
+.nav-label {
+  padding: 15px;
+  line-height: 20px;
+  color: var(--color1);
+}
+
+.dropdown a {
+    color: var(--color1);
+}
+
+.dropdown a:hover {
+    text-decoration: none;
+    color: var(--color4);
+}
+
+.dropdown-menu a {
+    color: var(--color3);
+}
+
 .navbar-toggle {
     background-color: var(--color4);
 }
@@ -26,6 +45,7 @@
 .navbar-default .navbar-brand {
     font-family: var(--header-font);
     color: var(--color1);
+    font-size: 30px;
 }
 
 .navbar-default .navbar-brand:hover,
@@ -157,4 +177,52 @@ a.list-group-item.active:focus {
     margin-left: 15px;
     border: 2px solid var(--color4);
     border-radius: 5%;
+}
+
+.dice {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 400px;
+}
+
+.dice-image {
+    width: 300px;
+    height: auto;
+    max-width: none;
+    border-radius: 2%;
+}
+
+.dice h1 {
+    position: absolute;
+    top: 47%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--color4);
+    margin: 0;
+    font-size: 5rem;
+}
+
+.close-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: var(--color1);
+    border: none;
+    font-size: 2.5rem;
+    padding: 0px 12px;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.80);
+  z-index: 9999;
 }

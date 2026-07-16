@@ -35,5 +35,62 @@
         </li>
       </ul>
     </div>
+
+    <div class="dropdown">
+      <a 
+        class="dropdown-toggle" 
+        style="cursor: pointer;"
+        (click)="diceDropdown = !diceDropdown">
+        Roll Dice 
+        <span 
+          class="caret">
+        </span>
+      </a>
+      <ul class="dropdown-menu" [class.show]="diceDropdown">
+        <li routerLinkActive="active">
+          <a
+            style="cursor: pointer;"
+            (click)="generateDtwenty()"
+            >D20
+          </a>
+        </li>
+        <li routerLinkActive="active">
+          <a
+            style="cursor: pointer;"
+            (click)="generateDtwelve()"
+            >D12
+          </a>
+        </li>
+        <li routerLinkActive="active">
+          <a
+            style="cursor: pointer;"
+            (click)="generateDten()"
+            >D10
+          </a>
+        </li>
+        <li routerLinkActive="active">
+          <a
+            style="cursor: pointer;"
+            (click)="generateDeight()"
+            >D8
+          </a>
+        </li>
+        <li routerLinkActive="active">
+          <a
+            style="cursor: pointer;"
+            (click)="generateDsix()"
+            >D6
+          </a>
+        </li>
+        <li routerLinkActive="active">
+          <a
+            style="cursor: pointer;"
+            (click)="generateDfour()"
+            >D4
+          </a>
+        </li>
+      </ul>
+    </div>
+
   </div>
 </nav>

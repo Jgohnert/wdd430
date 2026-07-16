@@ -1,0 +1,18 @@
+<div class="overlay" *ngIf="overlay">
+  <div class="dice">
+    <button 
+    class="close-btn" 
+    (click)="closeOverlay()">
+      &times;
+    </button>
+    <div class="row" style="display: flex; align-items: flex-end;">
+      <div class="col-xs-5">
+        <img 
+          [src]="diceImage" 
+          alt="Dice" 
+          class="dice-image" >
+      </div>
+    </div>
+    <h1>{{ randomNumber }}</h1>
+  </div>
+</div>

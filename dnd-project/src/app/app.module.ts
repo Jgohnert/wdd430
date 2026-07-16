@@ -23,6 +23,7 @@ import { WeaknessListComponent } from './weaknesses/weakness-list/weakness-list.
 import { WeaknessItemComponent } from './weaknesses/weakness-item/weakness-item.component';
 import { WeaknessDetailComponent } from './weaknesses/weakness-detail/weakness-detail.component';
 import { WeaknessSpellsComponent } from './weaknesses/weakness-spells/weakness-spells.component';
+import { DiceComponent } from './dice/dice.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { WeaknessSpellsComponent } from './weaknesses/weakness-spells/weakness-s
     WeaknessItemComponent,
     WeaknessDetailComponent,
     WeaknessSpellsComponent,
+    DiceComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [provideBrowserGlobalErrorListeners()],
