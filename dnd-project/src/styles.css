@@ -1,1 +1,156 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Eagle+Lake&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Eagle+Lake&family=Uncial+Antiqua&display=swap');
+
+:root {
+  --color1: #F4EBFF;
+  --color2: #CDC8E4;
+  --color3: #988C86;
+  --color4: #323432;
+  --color5: #284755;
+  /* --color6: #13bfdd; */
+  --header-font: "Uncial Antiqua", system-ui;
+  --main-font: "Eagle Lake", serif;
+}
+
+
+.navbar {
+    background-color: var(--color3);
+    border: none;
+    border-radius: 0%;
+}
+
+.navbar-default .navbar-brand {
+    font-family: var(--header-font);
+    color: var(--color1);
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-nav > li > a:hover {
+    color: var(--color4);
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: var(--color1);
+    font-family: var(--main-font);
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-brand:focus {
+    color: var(--color4);
+    background-color: var(--color1);
+}
+
+body {
+    background-color: var(--color4);
+    font-family: var(--main-font);
+}
+
+h1, h2, h3 {
+    font-family: var(--header-font);
+    color: var(--color1);
+}
+
+h4 {
+    font-family: var(--header-font);
+}
+
+.panel-default .panel-heading {
+    background-color: var(--color5);
+    color: var(--color1);
+}
+
+.panel-default {
+    background-color: var(--color2);
+    border-radius: 0%;
+}
+
+.panel-default p {
+    margin-left: 20px;
+}
+
+.list-group-item {
+    background-color: var(--color1);
+    color: var(--color4);
+}
+
+.list-group-item div {
+    color: var(--color4);
+}
+
+.list-group-item div:hover {
+    color: var(--color3);
+}
+
+.btn {
+    background-color: var(--color3);
+    border: 1px solid var(--color4);
+}
+
+.btn-default {
+    background-color: var(--color3);
+    border-color: var(--color4);
+    color: var(--color1);
+}
+
+.btn-default:hover,
+.btn-default:focus,
+.btn-default:active,
+.btn-default.active {
+    background-color: var(--color4);
+    border-color: var(--color4);
+    color: var(--color3);
+}
+
+.list-group-item,
+.list-group-item:first-child,
+.list-group-item:last-child {
+    border: none;
+    border-radius: 0%;
+}
+
+a.list-group-item:hover {
+    background-color: var(--color2);
+    color: var(--color1);
+}
+
+a.list-group-item:hover h4,
+a.list-group-item:hover p,
+a.list-group-item.active h4,
+a.list-group-item.active p {
+    color: var(--color1);
+}
+
+a.list-group-item.active,
+a.list-group-item.active:hover,
+a.list-group-item.active:focus {
+    background-color: var(--color2);
+    border-color: var(--color2);
+    color: var(--color1);
+}
+
+.panel-default {
+    border: solid 5px;
+    border-color: var(--color5);
+}
+
+.panel-heading {
+    border: none;
+    border-radius: 0%;
+}
+
+.form-control {
+    margin-left: 15px;
+    background-color: var(--color1);
+}
+
+.form-group .form-control {
+    margin: 0%;
+}
+
+.img-responsive {
+    margin-left: 15px;
+    border: 2px solid var(--color4);
+    border-radius: 5%;
+}
