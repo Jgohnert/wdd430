@@ -1,0 +1,41 @@
+<div class="panel panel-default" *ngIf="monster">
+  <div class="panel-heading">
+    <div class="col-xs-12"> 
+      <h1>{{ monster.name }}</h1> 
+    </div>
+    <div class="col-xs-12">
+      <p><b>{{ monster.type }}</b></p>
+    </div>
+
+    <div class="row" style="display: flex; align-items: flex-end;">
+      <div class="col-xs-5">
+        <img 
+          [src]="monster.image" 
+          [alt]="monster.name" 
+          class="img-responsive" >
+      </div>
+    </div>
+  </div>
+
+  <div class="row" style="margin: 1rem">
+    <div class="col-xs-12" style="margin-top: 2px">
+      Immune to {{ monster.immunity }}
+    </div>
+    <div class="col-xs-12" style="margin-top: 2px">
+      Vulnerable to {{ monster.vulnerabilities }}
+    </div>
+    <div class="col-xs-12" style="margin-top: 2px">
+      <h4>Spells the {{monster.name}} is Weak against:</h4>
+    </div>
+  </div>
+  <div class="row" style="margin: 10px">
+    <div class="col-xs-12">
+      <app-weakness-spells
+        *ngFor="let spellEl of spells | 
+        spellsFilter:term"
+        [spell]="spellEl">
+      </app-weakness-spells>
+    </div>
+  </div>
+</div>
+

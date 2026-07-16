@@ -1,6 +1,6 @@
 <div class="panel panel-default">
   <div class="panel-body">
-    <form id="spell-edit" (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <form id="monster-edit" (ngSubmit)="onSubmit(f)" #f="ngForm">
       <div class="row">
         <div class="col-sm-12 form-group">
           <label for="name">Name:</label>
@@ -8,7 +8,7 @@
             type="text"
             id="name"
             name="name"
-            [ngModel]="spell?.name"
+            [ngModel]="monster?.name"
             #name="ngModel"
             required
             class="form-control required"
@@ -24,7 +24,7 @@
             type="text"
             id="image"
             name="image"
-            [ngModel]="spell.image"
+            [ngModel]="monster.image"
             #image="ngModel"
             class="form-control"
             size="150"
@@ -34,13 +34,13 @@
 
       <div class="row">
         <div class="col-sm-12 form-group">
-          <label for="damageType">damageType:</label>
+          <label for="type">type:</label>
           <input
             type="text"
-            id="damageType"
-            name="damageType"
-            [ngModel]="spell?.damageType"
-            #damageType="ngModel"
+            id="type"
+            name="type"
+            [ngModel]="monster?.type"
+            #type="ngModel"
             required
             class="form-control required"
             size="120"
@@ -50,13 +50,13 @@
 
       <div class="row">
         <div class="col-sm-12 form-group">
-          <label for="level">level:</label>
+          <label for="hp">hp:</label>
           <input
             type="text"
-            id="level"
-            name="level"
-            [ngModel]="spell?.level"
-            #level="ngModel"
+            id="hp"
+            name="hp"
+            [ngModel]="monster?.hp"
+            #hp="ngModel"
             required
             class="form-control required"
             size="120"
@@ -66,13 +66,13 @@
 
       <div class="row">
         <div class="col-sm-12 form-group">
-          <label for="school">school:</label>
+          <label for="armor">armor:</label>
           <input
             type="text"
-            id="school"
-            name="school"
-            [ngModel]="spell?.school"
-            #school="ngModel"
+            id="armor"
+            name="armor"
+            [ngModel]="monster?.armor"
+            #armor="ngModel"
             required
             class="form-control required"
             size="120"
@@ -82,13 +82,29 @@
 
       <div class="row">
         <div class="col-sm-12 form-group">
-          <label for="description">description:</label>
+          <label for="vulnerabilities">vulnerabilities:</label>
           <input
             type="text"
-            id="description"
-            name="description"
-            [ngModel]="spell?.description"
-            #description="ngModel"
+            id="vulnerabilities"
+            name="vulnerabilities"
+            [ngModel]="monster?.vulnerabilities"
+            #vulnerabilities="ngModel"
+            required
+            class="form-control required"
+            size="200"
+            max="200">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="immunity">immunity:</label>
+          <input
+            type="text"
+            id="immunity"
+            name="immunity"
+            [ngModel]="monster?.immunity"
+            #immunity="ngModel"
             required
             class="form-control required"
             size="200"

@@ -1,6 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Spell } from './spells.model';
-import { Subject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 
@@ -60,7 +59,7 @@ export class SpellService {
           console.error('An Error occured getting spells:', error);
         }
       )
-    }
+  }
 
   getSpell(id: string): Spell {
     for (let spell of this.spells) {

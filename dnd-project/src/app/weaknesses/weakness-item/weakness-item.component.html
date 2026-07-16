@@ -1,0 +1,13 @@
+<div class="list-group-item clearfix">
+  <a href="#"
+    routerLinkActive="active"
+    [routerLink]="['/monsters', monster.id]">
+    <div class="pull-left">
+      <h4 class="list-group-item-heading">{{ monster.name }}</h4>
+      <p class="list-group-itemp">{{ monster.type }}</p>
+    </div>
+  </a>
+    <div class="pull-right pad-left-right">
+        <a class="btn btn-success" [routerLink]="['/weaknesses', monster.id]">Weaknesses</a>
+    </div>
+</div>

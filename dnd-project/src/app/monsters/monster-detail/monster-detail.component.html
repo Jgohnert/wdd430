@@ -1,0 +1,49 @@
+<div class="panel panel-default" *ngIf="monster">
+  <div class="panel-heading">
+    <div class="col-xs-12"> 
+        <h1>{{ monster.name }}</h1> 
+      </div>
+
+    <div class="row" style="display: flex; align-items: flex-end;">
+      <div class="col-xs-5">
+        <img 
+          [src]="monster.image" 
+          [alt]="monster.name" 
+          class="img-responsive" >
+      </div>
+  
+      <div class="col-xs-7 text-right">
+        <div class="btn-group" style="margin: 2px">
+          <a type="button" class="btn btn-primary"
+            [routerLink]="['/monsters', monster.id, 'edit']">
+            Edit
+          </a>
+        </div>
+        <div class="btn-group" style="margin: 2px">
+          <a type="button" class="btn btn-danger"
+            (click)="onDelete()">
+            Delete
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" style="margin: 1rem">
+    <div class="col-xs-12" style="margin-top: 2px">
+      <b>Type:</b> {{ monster.type }}
+    </div>
+    <div class="col-xs-12" style="margin-top: 2px">
+      <b>hp:</b> {{ monster.hp }}
+    </div>
+    <div class="col-xs-12" style="margin-top: 2px">
+      <b>Armor Class:</b> {{ monster.armor }}
+    </div>
+    <div class="col-xs-12" style="margin-top: 2px">
+      <b>Vulnerabilities:</b> {{ monster.vulnerabilities }}
+    </div>
+    <div class="col-xs-12" style="margin-top: 2px">
+      <b>Immunity:</b> {{ monster.immunity }}
+    </div>
+  </div>
+</div>

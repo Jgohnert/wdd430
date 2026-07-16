@@ -1,0 +1,42 @@
+<div class="panel panel-default">
+
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="row col-sm-6">
+            <span class="title pad-left-right">Search monster for their weaknesses</span>
+          </div>
+          <div class="row">
+            <div class="input-group pull-left pad-left-right col-xs-7">
+              <input 
+                type="text" 
+                #searchBox 
+                (keyup)="search(searchBox.value)"
+                class="form-control"
+                placeholder="Enter a search value">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- [monster] is from monsterItemComponent -->
+  <div class="row" style="margin: 10px">
+    <div class="col-xs-12">
+      <app-weakness-item
+        *ngFor="let monsterEl of monsters | 
+        monstersFilter:term"
+        [monster]="monsterEl">
+      </app-weakness-item>
+    </div>
+  </div>
+
+  <p
+    *ngIf="(monsters | monstersFilter:term)
+    .length === 0"
+    >No monsters found.
+  </p>
+
+</div>

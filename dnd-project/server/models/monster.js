@@ -7,8 +7,8 @@ const monsterSchema = mongoose.Schema({
     type: { type: String },
     hp: { type: String },
     armor: { type: String },
-    vulnerabilities: { type: String },
-    immunity: { type: String },
+    vulnerabilities: [{ type: String }],
+    immunity: [{ type: String }],
 });
 
 module.exports = mongoose.model('Monster', monsterSchema);
