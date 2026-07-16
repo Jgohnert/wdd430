@@ -19,6 +19,10 @@
     border-radius: 0%;
 }
 
+.navbar-toggle {
+    background-color: var(--color4);
+}
+
 .navbar-default .navbar-brand {
     font-family: var(--header-font);
     color: var(--color1);
